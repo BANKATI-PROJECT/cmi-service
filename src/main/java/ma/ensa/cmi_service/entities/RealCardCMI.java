@@ -1,5 +1,6 @@
 package ma.ensa.cmi_service.entities;
 
+
 import jakarta.persistence.*;
 import java.time.LocalDate;
 

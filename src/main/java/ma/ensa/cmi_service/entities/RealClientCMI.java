@@ -1,5 +1,6 @@
 package ma.ensa.cmi_service.entities;
 
+
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -28,3 +29,4 @@ public class RealClientCMI {
         this.realCardsCMI = realCardsCMI;
     }
 }
+
