@@ -4,16 +4,16 @@ import jakarta.xml.ws.Endpoint;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient
+@EnableFeignClients
 public class CmiServiceApplication {
 
 	public static void main(String[] args) {
-		String address = "http://localhost:8081/CMI";
-		Endpoint.publish(address, new CMIServiceImpl());
-		System.out.println("Service concat is running at " + address);
 		SpringApplication.run(CmiServiceApplication.class, args);
 	}
 
 }
+

@@ -3,15 +3,14 @@ package ma.ensa.cmi_service.entities;
 
 import jakarta.persistence.*;
 import java.util.List;
-
+@Entity
 public class RealClientCMI {
 
     @Id
     private String saveToken;
 
     @OneToMany(mappedBy = "realClientCMI", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<RealCardCMI> realCardsCMI; // Liste des cartes associées à ce client
-
+    private List<RealCardCMI> realCardsCMI;
 
     public String getSaveToken() {
         return saveToken;
@@ -21,6 +20,7 @@ public class RealClientCMI {
         this.saveToken = saveToken;
     }
 
+
     public List<RealCardCMI> getRealCardsCMI() {
         return realCardsCMI;
     }
@@ -29,4 +29,3 @@ public class RealClientCMI {
         this.realCardsCMI = realCardsCMI;
     }
 }
-
