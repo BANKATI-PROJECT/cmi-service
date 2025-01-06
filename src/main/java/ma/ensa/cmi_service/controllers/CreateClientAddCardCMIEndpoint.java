@@ -5,7 +5,7 @@ import ma.ensa.cmi_service.entities.realcardcmi.RealCardCMI;
 import ma.ensa.cmi_service.entities.realclientcmi.RealClientCMI;
 import ma.ensa.cmi_service.repositories.RealCardCMIRepository;
 import ma.ensa.cmi_service.requests_responses.AddRealCardRequest;
-import ma.ensa.cmi_service.requests_responses.MessageResponse;
+import ma.ensa.cmi_service.requests_responses.AddRealCardResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -31,7 +31,7 @@ public class CreateClientAddCardCMIEndpoint {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "AddRealCardRequest")
     @ResponsePayload
-    public MessageResponse addRealCard(@RequestPayload AddRealCardRequest request) {
+    public AddRealCardResponse addRealCard(@RequestPayload AddRealCardRequest request) {
         // Service logic
         RealCardCMI card = new RealCardCMI();
         card.setNum(request.getCard().getNum());
@@ -50,8 +50,9 @@ public class CreateClientAddCardCMIEndpoint {
         RealClientCMI client = realClientCMIService.findOrCreateBySaveToken(request.getSafeToken());
         realClientCMIService.addCardToClient(client, card);
 
-        MessageResponse response = new MessageResponse();
-        response.setMessage("Card added successfully");
+        AddRealCardResponse response = new AddRealCardResponse();
+        response.setCardId(card.getId());
+        response.setSafeToken(request.getSafeToken());
         return response;
     }
 

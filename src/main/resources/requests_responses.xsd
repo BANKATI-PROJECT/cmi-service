@@ -14,6 +14,15 @@
         </xs:complexType>
     </xs:element>
 
+    <xs:element name="AddRealCardResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="safeToken" type="xs:string"/>
+                <xs:element name="cardId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <xs:element name="MessageResponse">
         <xs:complexType>
             <xs:sequence>

@@ -25,7 +25,8 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="saveToken" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="safeToken" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="cardId" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +37,54 @@ import jakarta.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "saveToken"
+    "safeToken",
+    "cardId"
 })
-@XmlRootElement(name = "GetAllCardsRequest")
-public class GetAllCardsRequest {
+@XmlRootElement(name = "AddRealCardResponse")
+public class AddRealCardResponse {
 
     @XmlElement(required = true)
-    protected String saveToken;
+    protected String safeToken;
+    protected long cardId;
 
     /**
-     * Gets the value of the saveToken property.
+     * Gets the value of the safeToken property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getSaveToken() {
-        return saveToken;
+    public String getSafeToken() {
+        return safeToken;
     }
 
     /**
-     * Sets the value of the saveToken property.
+     * Sets the value of the safeToken property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setSaveToken(String value) {
-        this.saveToken = value;
+    public void setSafeToken(String value) {
+        this.safeToken = value;
+    }
+
+    /**
+     * Gets the value of the cardId property.
+     * 
+     */
+    public long getCardId() {
+        return cardId;
+    }
+
+    /**
+     * Sets the value of the cardId property.
+     * 
+     */
+    public void setCardId(long value) {
+        this.cardId = value;
     }
 
 }
