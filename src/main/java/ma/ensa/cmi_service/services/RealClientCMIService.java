@@ -28,6 +28,11 @@ public class RealClientCMIService {
                 });
     }
 
+    public RealClientCMI findBySaveToken(String saveToken) {
+        return realClientCMIRepository.findBySaveToken(saveToken)
+                .orElse(null);
+    }
+
     public void addCardToClient(RealClientCMI client, RealCardCMI card) {
         if (client.getRealCardsCMI() == null) {
             client.setRealCardsCMI(new ArrayList<RealCardCMI>());
@@ -49,6 +54,7 @@ public class RealClientCMIService {
         existingCard.setExpire(card.getExpire());
         existingCard.setLabel(card.getLabel());
         existingCard.setSolde(card.getSolde());
+        realCardCMIRepository.save(existingCard);
     }
 
     public List<RealCardCMI> getCardsBySafeToken(String safeToken) throws Exception {

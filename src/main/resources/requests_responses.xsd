@@ -14,7 +14,7 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="AddRealCardResponse">
+    <xs:element name="MessageResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="message" type="xs:string"/>
@@ -56,4 +56,13 @@
     </xs:complexType>
     </xs:element>
 
+    <xs:element name="TransactionRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="saveToken" type="xs:string"/>
+                <xs:element name="id" type="xs:long"/>
+                <xs:element name="amount" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>

@@ -25,7 +25,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="saveToken" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="message" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +36,36 @@ import jakarta.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "saveToken"
+    "message"
 })
-@XmlRootElement(name = "GetAllCardsRequest")
-public class GetAllCardsRequest {
+@XmlRootElement(name = "MessageResponse")
+public class MessageResponse {
 
     @XmlElement(required = true)
-    protected String saveToken;
+    protected String message;
 
     /**
-     * Gets the value of the saveToken property.
+     * Gets the value of the message property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getSaveToken() {
-        return saveToken;
+    public String getMessage() {
+        return message;
     }
 
     /**
-     * Sets the value of the saveToken property.
+     * Sets the value of the message property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setSaveToken(String value) {
-        this.saveToken = value;
+    public void setMessage(String value) {
+        this.message = value;
     }
 
 }
