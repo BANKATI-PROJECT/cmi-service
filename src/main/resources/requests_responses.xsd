@@ -1,0 +1,59 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ensa.ma/cmi-service/requests_responses"
+           xmlns:tns="http://ensa.ma/cmi-service/requests_responses" elementFormDefault="qualified"
+           xmlns:RealCardCMI="http://ensa.ma/cmi-service/entities/RealCardCMI">
+
+    <xs:import namespace="http://ensa.ma/cmi-service/entities/RealCardCMI" schemaLocation="RealCardCMI.xsd"/>
+
+
+    <xs:element name="AddRealCardRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="safeToken" type="xs:string"/>
+                <xs:element name="card" type="RealCardCMI:RealCardCMI"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="AddRealCardResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="message" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetCardRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="safeToken" type="xs:string"/>
+                <xs:element name="numCard" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetAllCardsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="saveToken" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetCardResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="card" type="RealCardCMI:RealCardCMI"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetAllCardsResponse">
+    <xs:complexType>
+        <xs:sequence>
+            <!-- Define the card elements as a list of RealCardCMI -->
+            <xs:element name="cards" type="RealCardCMI:RealCardCMI" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    </xs:element>
+
+</xs:schema>

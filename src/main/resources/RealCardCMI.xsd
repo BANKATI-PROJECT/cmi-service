@@ -1,0 +1,14 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ensa.ma/cmi-service/entities/RealCardCMI" 
+            targetNamespace="http://ensa.ma/cmi-service/entities/RealCardCMI" elementFormDefault="qualified">
+
+        <xs:complexType name="RealCardCMI">
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+                <xs:element name="num" type="xs:string"/>
+                <xs:element name="cvv" type="xs:string"/>
+                <xs:element name="expire" type="xs:date"/>
+                <xs:element name="label" type="xs:string"/>
+                <xs:element name="solde" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+</xs:schema>
