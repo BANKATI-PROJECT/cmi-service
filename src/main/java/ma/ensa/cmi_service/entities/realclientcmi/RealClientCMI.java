@@ -11,6 +11,7 @@ package ma.ensa.cmi_service.entities.realclientcmi;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
@@ -19,6 +20,7 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
 import ma.ensa.cmi_service.entities.realcardcmi.RealCardCMI;
 
@@ -56,7 +58,8 @@ public class RealClientCMI {
     @XmlElement(required = true)
     protected String saveToken;
     @XmlElement(required = true)
-    @OneToMany(fetch = FetchType.EAGER)
+    @XmlTransient
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     protected List<RealCardCMI> realCardsCMI;
 
     /**

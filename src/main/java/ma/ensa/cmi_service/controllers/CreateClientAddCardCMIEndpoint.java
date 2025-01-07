@@ -33,6 +33,11 @@ public class CreateClientAddCardCMIEndpoint {
     @ResponsePayload
     public AddRealCardResponse addRealCard(@RequestPayload AddRealCardRequest request) {
         // Service logic
+
+        System.out.println(request.getSafeToken());
+        System.out.println(request.getCard().getCvv());
+        System.out.println(request.getCard().getNum());
+
         RealCardCMI card = new RealCardCMI();
         card.setNum(request.getCard().getNum());
         card.setCvv(request.getCard().getCvv());
