@@ -1,0 +1,15 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ensa.ma/cmi-service/entities/RealClientCMI"
+           xmlns:tns="http://ensa.ma/cmi-service/entities/RealClientCMI" elementFormDefault="qualified" xmlns:RealCardCMI="http://ensa.ma/cmi-service/entities/RealCardCMI">
+
+    
+    <xs:import namespace="http://ensa.ma/cmi-service/entities/RealCardCMI" schemaLocation="RealCardCMI.xsd"/>
+
+    <xs:element name="RealClientCMI">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="saveToken" type="xs:string"/>
+                <xs:element name="realCardsCMI" type="RealCardCMI:RealCardCMI" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
